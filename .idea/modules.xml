@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LQMall.iml" filepath="$PROJECT_DIR$/LQMall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\project\github\LQMall\app\app.iml" filepath="D:\project\github\LQMall\app\app.iml" />
     </modules>
   </component>
 </project>
