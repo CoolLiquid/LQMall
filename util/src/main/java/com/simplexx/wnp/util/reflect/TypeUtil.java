@@ -1,6 +1,8 @@
 package com.simplexx.wnp.util.reflect;
 
 
+import com.simplexx.wnp.baselib.util.StringUtil;
+
 import java.lang.reflect.Type;
 
 /**
@@ -26,7 +28,7 @@ public final class TypeUtil {
 
     public static Class<?> getClass(Type type) throws ClassNotFoundException {
         String className = getClassName(type);
-        if (className != null && !className.equals(""))
+        if (StringUtil.isNullOrEmpty(className))
             throw new ClassNotFoundException("can not found class from null type");
         return Class.forName(className);
     }

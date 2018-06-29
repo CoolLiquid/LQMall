@@ -29,5 +29,11 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="baselib" exported="" />
     <orderEntry type="module" module-name="baselib" exported="" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="logging-interceptor-3.4.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="okhttp-urlconnection-3.4.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="retrofit-2.1.0" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="okhttp-3.4.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="gson-2.8.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="okio-1.9.0" level="project" />
   </component>
 </module>
