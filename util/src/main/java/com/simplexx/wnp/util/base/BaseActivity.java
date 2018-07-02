@@ -13,8 +13,24 @@ import com.simplexx.wnp.baselib.basemvp.IView;
 
 public abstract class BaseActivity extends AppCompatActivity implements IView {
 
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void hideKeyBoard() {
+
+    }
+
+    @Override
+    public void dismissLoadingView() {
+
+    }
+
+    @Override
+    public boolean viewDestroyed() {
+        return this.isDestroyed();
     }
 }

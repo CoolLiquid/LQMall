@@ -16,7 +16,7 @@ public interface IView {
     /**
      * 显示一个加载中的弹出框
      *
-     * @param request
+     * @param
      * @return 使用此返回值来关闭加载中的弹出框
      *//*
     void showLoadingView(ActionRequest request);

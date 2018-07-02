@@ -2,7 +2,6 @@ package com.simplexx.wnp.util.base;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 
@@ -14,7 +13,7 @@ import com.simplexx.wnp.util.PresenterUtil;
  * Created by wnp on 2018/6/25.
  */
 
-public abstract class PresenterActivity<T extends BasePresenter, E extends IView> extends BaseActivity {
+public abstract class PresenterActivity<T extends BasePresenter<E>, E extends IView> extends BaseActivity {
     private T presenter;
 
     protected T getPresenter() {
@@ -27,8 +26,8 @@ public abstract class PresenterActivity<T extends BasePresenter, E extends IView
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (!canRotateScreen())
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         createPresenter();

@@ -1,6 +1,7 @@
 package com.simplexx.wnp.baselib.ui;
 
 import com.google.gson.annotations.Expose;
+import com.simplexx.wnp.baselib.Sessions;
 import com.simplexx.wnp.baselib.lang.Version;
 import com.simplexx.wnp.baselib.repositories.ClientRepositories;
 import com.simplexx.wnp.baselib.repositories.ISingleRepository;
@@ -168,6 +169,14 @@ public class ClientSettings {
         return getSingleRepository("uuid", String.class).get();
     }
 
+    public Sessions getLastSessions() {
+        return getSingleRepository("last-Sessions", Sessions.class).get();
+    }
+
+    public void setLastSessions(Sessions lastSessions) {
+        getSingleRepository("last-Sessions", Sessions.class).addOrReplace(lastSessions);
+    }
+
     public ClientSettings setUuid(String uuid) {
         getSingleRepository("uuid", String.class).addOrReplace(uuid.trim());
         return this;
@@ -178,6 +187,7 @@ public class ClientSettings {
     public DeviceInfo getDeviceInfo() {
         return deviceInfo;
     }
+
     public Version getVersion() {
         return deviceInfo.getVersionName() == null ? null : new Version(deviceInfo.getVersionName());
     }
