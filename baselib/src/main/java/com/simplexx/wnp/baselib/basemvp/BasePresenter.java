@@ -1,5 +1,8 @@
 package com.simplexx.wnp.baselib.basemvp;
 
+import com.simplexx.wnp.baselib.executor.ActionRequest;
+import com.simplexx.wnp.baselib.executor.ActionRunnable;
+
 /**
  * Created by wnp on 2018/6/25.
  */
@@ -49,5 +52,9 @@ public class BasePresenter<T extends IView> implements IPresenter<T> {
      * run in mian thread
      */
     public void onViewStop() {
+    }
+
+    protected ActionRequest.Builder newActionBuilder() {
+        return new ActionRequest.Builder().setView(getView());
     }
 }

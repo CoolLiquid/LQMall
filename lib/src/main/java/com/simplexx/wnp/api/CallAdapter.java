@@ -1,10 +1,10 @@
 package com.simplexx.wnp.api;
 
 import com.simplexx.wnp.bean.EmptyBean;
-import com.simplexx.wnp.exception.ErrorCode;
-import com.simplexx.wnp.exception.LQException;
-import com.simplexx.wnp.exception.NetWorkException;
-import com.simplexx.wnp.exception.UnLoginException;
+import com.simplexx.wnp.baselib.exception.ErrorCode;
+import com.simplexx.wnp.baselib.exception.LQException;
+import com.simplexx.wnp.baselib.exception.NetWorkException;
+import com.simplexx.wnp.baselib.exception.UnLoginException;
 
 import java.io.IOException;
 

@@ -1,9 +1,9 @@
 package com.simplexx.wnp.api;
 
 import com.simplexx.wnp.bean.EmptyBean;
-import com.simplexx.wnp.exception.LQException;
-import com.simplexx.wnp.exception.NetWorkException;
-import com.simplexx.wnp.exception.UnLoginException;
+import com.simplexx.wnp.baselib.exception.LQException;
+import com.simplexx.wnp.baselib.exception.NetWorkException;
+import com.simplexx.wnp.baselib.exception.UnLoginException;
 
 import retrofit2.Call;
 
