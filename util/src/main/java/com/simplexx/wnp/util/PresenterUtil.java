@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.simplexx.wnp.baselib.basemvp.BasePresenter;
 import com.simplexx.wnp.baselib.basemvp.IView;
 import com.simplexx.wnp.util.base.PresenterActivity;
+import com.simplexx.wnp.util.base.PresenterFragment;
 import com.simplexx.wnp.util.executor.ThreadExecutor;
 import com.simplexx.wnp.util.reflect.TypeUtil;
 
@@ -90,9 +91,9 @@ public class PresenterUtil {
         return createPresenter(activity.getClass(), (E) activity);
     }
 
-/*    public static <T extends BasePresenter<E>, E extends IView> T createPresenter(PresenterFragment<T, E> fragment) {
+    public static <T extends BasePresenter<E>, E extends IView> T createPresenter(PresenterFragment<T, E> fragment) {
         return createPresenter(fragment.getClass(), (E) fragment);
-    }*/
+    }
 
 /*    public static <T extends BasePresenter<E>, E extends IView> T createPresenter(DialogPresenterFragment<T, E> fragment) {
         return createPresenter(fragment.getClass(), (E) fragment);
