@@ -1,12 +1,10 @@
 package com.simplexx.wnp.util.base;
 
-import android.content.Context;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.support.annotation.NonNull;
+import android.view.KeyEvent;
 
 import com.simplexx.wnp.baselib.basemvp.IView;
 import com.simplexx.wnp.baselib.exception.NetWorkException;
@@ -14,52 +12,55 @@ import com.simplexx.wnp.baselib.executor.ActionRequest;
 import com.simplexx.wnp.util.executor.ThreadExecutor;
 
 /**
- * 权限申请机制
+ * 申请权限
+ * 加载弹窗
  * Created by wnp on 2018/7/3.
  */
 
-public abstract class BaseFragment extends Fragment implements IView {
+public class BaseDialogFragment extends DialogFragment implements IView {
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+                    return onBeforeBackPressed();
+                }
+                return false;
+            }
+        });
     }
 
+    /**
+     * 权限申请的回调
+     *
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected boolean onBeforeBackPressed() {
+        return false;
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        hideKeyBoard();
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public BaseActivity getBaseActivity() {
+        return (BaseActivity) getActivity();
     }
 
     @Override
     public void onNeedLogin(boolean otherDevice) {
-        if (getBaseActivity() != null)
-            getBaseActivity().onNeedLogin(otherDevice);
+        getBaseActivity().onNeedLogin(otherDevice);
     }
 
     @Override
     public void onException(Exception e) {
-        try {
-            getBaseActivity().onException(e);
-        } catch (Exception exception) {
-            e.printStackTrace();
-        }
+        getBaseActivity().onException(e);
     }
 
     @Override
@@ -69,7 +70,9 @@ public abstract class BaseFragment extends Fragment implements IView {
 
     @Override
     public void onException(ActionRequest request, NetWorkException e) {
-        getBaseActivity().onException(request, e);
+        if (this.isAdded()) {
+            //todo Show ActionReloadDialog
+        }
     }
 
     @Override
@@ -97,7 +100,7 @@ public abstract class BaseFragment extends Fragment implements IView {
         ThreadExecutor.runInMain(new Runnable() {
             @Override
             public void run() {
-                if (BaseFragment.this.isAdded()) {
+                if (BaseDialogFragment.this.isAdded()) {
 
                 }
             }
@@ -109,14 +112,16 @@ public abstract class BaseFragment extends Fragment implements IView {
         ThreadExecutor.runInMain(new Runnable() {
             @Override
             public void run() {
-                if (BaseFragment.this.isAdded()) {
+                if (BaseDialogFragment.this.isAdded()) {
 
                 }
             }
         });
     }
 
-    public BaseActivity getBaseActivity() {
-        return (BaseActivity) getActivity();
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hideKeyBoard();
     }
 }

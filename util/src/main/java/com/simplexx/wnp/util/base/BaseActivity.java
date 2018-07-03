@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 
 import com.simplexx.wnp.baselib.basemvp.IView;
 import com.simplexx.wnp.baselib.exception.LQException;
@@ -108,6 +109,24 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
         }
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            if (onBeforeBackPressed())
+                return true;
+            else
+                return super.onKeyDown(keyCode, event);
+        }
+        return super.onKeyDown(keyCode, event);
+
+    }
+
+    private boolean onBeforeBackPressed() {
+        // TODO: 2018/7/3 这里需要使用activityHelper，来做相应的逻辑判断
+        return false;
+    }
 
     @Override
     public void hideKeyBoard() {
@@ -129,7 +148,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
         if (otherDevice) {
             //被动退出登录
             onForceLogout();
-        }else {
+        } else {
             //强制退出登录
             onTokenOutDate();
 //            getTgnetApplication().launchLoginActivity(this);
