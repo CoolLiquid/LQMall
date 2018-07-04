@@ -1,23 +1,26 @@
 package com.simplexx.wnp.util.base;
 
-import android.app.DialogFragment;
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 
 import com.simplexx.wnp.baselib.basemvp.IView;
 import com.simplexx.wnp.baselib.exception.NetWorkException;
 import com.simplexx.wnp.baselib.executor.ActionRequest;
-import com.simplexx.wnp.util.executor.ThreadExecutor;
+import com.simplexx.wnp.util.BuildConfig;
 
 /**
  * 申请权限
  * 加载弹窗
  * Created by wnp on 2018/7/3.
+ * DialogFragment---使用的是兼容库中的类
  */
 
-public class BaseDialogFragment extends DialogFragment implements IView {
+public abstract class BaseDialogFragment extends DialogFragment implements IView {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -96,32 +99,22 @@ public class BaseDialogFragment extends DialogFragment implements IView {
     }
 
     @Override
-    public void showLoadingView(ActionRequest request) {
-        ThreadExecutor.runInMain(new Runnable() {
-            @Override
-            public void run() {
-                if (BaseDialogFragment.this.isAdded()) {
-
-                }
-            }
-        });
-    }
-
-    @Override
-    public void dismissLoadingView() {
-        ThreadExecutor.runInMain(new Runnable() {
-            @Override
-            public void run() {
-                if (BaseDialogFragment.this.isAdded()) {
-
-                }
-            }
-        });
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
         hideKeyBoard();
+    }
+
+    public void singleShow(FragmentManager manager) {
+        if (this.isAdded() || isVisible() || isRemoving() || manager == null)
+            return;
+        if (BuildConfig.DEBUG){
+            show(manager, getClass().getName());
+        }else {
+            try {
+                show(manager, getClass().getName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

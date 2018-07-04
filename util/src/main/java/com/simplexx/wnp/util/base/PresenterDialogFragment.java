@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 
 import com.simplexx.wnp.baselib.basemvp.BasePresenter;
 import com.simplexx.wnp.baselib.basemvp.IView;
+import com.simplexx.wnp.baselib.executor.ActionRequest;
 import com.simplexx.wnp.util.PresenterUtil;
+import com.simplexx.wnp.util.executor.ThreadExecutor;
 
 /**
  * Created by wnp on 2018/7/3.
@@ -38,6 +40,30 @@ public class PresenterDialogFragment<T extends BasePresenter<E>, E extends IView
         View view = super.onCreateView(inflater, container, savedInstanceState);
         presenter.onViewCreate();
         return view;
+    }
+
+    @Override
+    public void showLoadingView(ActionRequest request) {
+        ThreadExecutor.runInMain(new Runnable() {
+            @Override
+            public void run() {
+                if (PresenterDialogFragment.this.isAdded()) {
+
+                }
+            }
+        });
+    }
+
+    @Override
+    public void dismissLoadingView() {
+        ThreadExecutor.runInMain(new Runnable() {
+            @Override
+            public void run() {
+                if (PresenterDialogFragment.this.isAdded()) {
+
+                }
+            }
+        });
     }
 
     @Override
