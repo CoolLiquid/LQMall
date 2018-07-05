@@ -51,7 +51,7 @@ public class StringUtil {
     }
 
     /**
-     * 姣旇緝涓や釜瀛楃涓叉槸鍚︾浉绛夛紝浠绘剰涓�涓负null閮借繑鍥瀎alse
+     * 比较两个字符串是否相等，任意一个为null都返回false
      *
      * @param str1
      * @param str2

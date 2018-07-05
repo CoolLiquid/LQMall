@@ -12,6 +12,7 @@ import com.simplexx.wnp.baselib.basemvp.IView;
 import com.simplexx.wnp.baselib.exception.NetWorkException;
 import com.simplexx.wnp.baselib.executor.ActionRequest;
 import com.simplexx.wnp.util.executor.ThreadExecutor;
+import com.simplexx.wnp.util.ui.dialog.ActionLoadingDialogFragment;
 
 /**
  * 权限申请机制
@@ -93,12 +94,12 @@ public abstract class BaseFragment extends Fragment implements IView {
     }
 
     @Override
-    public void showLoadingView(ActionRequest request) {
+    public void showLoadingView(final ActionRequest request) {
         ThreadExecutor.runInMain(new Runnable() {
             @Override
             public void run() {
                 if (BaseFragment.this.isAdded()) {
-
+                    ActionLoadingDialogFragment.singleShow(getBaseActivity(), request);
                 }
             }
         });
@@ -110,7 +111,7 @@ public abstract class BaseFragment extends Fragment implements IView {
             @Override
             public void run() {
                 if (BaseFragment.this.isAdded()) {
-
+                    ActionLoadingDialogFragment.dismiss(getBaseActivity());
                 }
             }
         });

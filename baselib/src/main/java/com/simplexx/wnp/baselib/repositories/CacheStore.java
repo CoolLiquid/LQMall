@@ -44,7 +44,7 @@ public abstract class CacheStore {
     };
 
     /**
-     * ä»¥jsonæ–¹å¼å­˜å‚¨
+     * ÒÔjson·½Ê½´æ´¢
      * @param key
      * @param value
      * @param time
@@ -56,7 +56,7 @@ public abstract class CacheStore {
         realSet(key, new CacheData(timeUnit.toMillis(time) + System.currentTimeMillis(), json));
     }
     /**
-     * ä»¥jsonæ–¹å¼å­˜å‚¨
+     * ÒÔjson·½Ê½´æ´¢
      * @param key
      * @param value
      * @param <T>
@@ -67,7 +67,7 @@ public abstract class CacheStore {
     }
 
     /**
-     * è·å–ä»¥jsonå­˜å‚¨çš„å€¼
+     * »ñÈ¡ÒÔjson´æ´¢µÄÖµ
      * @param key
      * @param classOfT
      * @param <T>
@@ -82,7 +82,7 @@ public abstract class CacheStore {
     }
 
     /**
-     * è·å–ä»¥jsonå­˜å‚¨çš„å€¼
+     * »ñÈ¡ÒÔjson´æ´¢µÄÖµ
      * @param key
      * @param typeOfT
      * @param <T>
@@ -97,7 +97,7 @@ public abstract class CacheStore {
     }
 
     /**
-     * åˆ é™¤ç¼“å­˜
+     * É¾³ı»º´æ
      * @param key
      */
     public final void del(String key){

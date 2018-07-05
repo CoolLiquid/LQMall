@@ -15,7 +15,7 @@ public class UnLoginException extends Exception {
     }
 
     public UnLoginException(int type) {
-        super("未登录", new LQException(ErrorCode.UNLOGIN, "未登录"));
+        super("δ��¼", new LQException(ErrorCode.UNLOGIN, "δ��¼"));
         this.type = type;
     }
 }

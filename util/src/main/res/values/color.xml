@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_60">#60000000</color>
+    <color name="colorPrimary">#ffb629</color>
+    <color name="colorPrimaryDark">#ff9c00</color>
+    <color name="colorAccent">#ff9c00</color>
+
+    <!--橙色-->
+    <color name="orange_ff5500">#ff5500</color>
+    <color name="orange_ee4400">#ee4400</color>
+    <color name="orange_ff9900">#ff9900</color>
+    <color name="orange_f88829">#f88829</color>
+    <color name="orange_ff9d01">#ff9d01</color>
+    <color name="orange_ffb629">#ffb629</color>
+    <color name="orange_f2d300">#f2d300</color>
+    <color name="orange_ff9c00">#ff9c00</color>
+    <color name="orange_ff9000">#ff9000</color>
+    <color name="orange_ffa915">#ffa915</color>
+    <color name="orange_fbdcc1">#fbdcc1</color>
+    <color name="orange_ffa71c">#ffa71c</color>
+    <!--绿色-->
+    <color name="green_00aa33">#00aa33</color>
+    <color name="green_77dd77">#77dd77</color>
+    <color name="green_219c55">#219c55</color>
+
+    <!--白色-->
+    <color name="white_ffffff">#ffffff</color>
+    <color name="white_f5f5f5">#f5f5f5</color>
+    <color name="white_f8f8f8">#f8f8f8</color>
+    <color name="white_f2f2f2">#f2f2f2</color>
+    <color name="white_transparency_90">#e6ffffff</color>
+
+    <!--蓝色-->
+    <color name="blue_1177ff">#1177ff</color>
+    <color name="blue_2277dd">#2277dd</color>
+    <color name="blue_259bff">#259bff</color>
+    <color name="blue_6699bb">#6699bb</color>
+    <color name="blue_1177dd">#1177dd</color>
+    <color name="blue_8192ae">#8192ae</color>
+    <color name="blue_f0f8ff">#f0f8ff</color>
+    <color name="blue_0080ed">#0080ed</color>
+    <!--红色-->
+    <color name="red_dd0000">#dd0000</color>
+    <color name="red_cc2200">#cc2200</color>
+    <color name="red_fd424d">#fd424d</color>
+
+
+    <!--黑色-->
+    <color name="black_333333">#333</color>
+    <color name="black_444444">#444</color>
+    <color name="black_555555">#555555</color>
+    <color name="black_525252">#525252</color>
+    <color name="black_000000">#000000</color>
+    <color name="black_999999">#999999</color>
+
+    <!--灰色-->
+    <color name="gray_E0E0E0">#E0E0E0</color>
+    <color name="gray_555555">#555555</color>
+    <color name="gray_666666">#666666</color>
+    <color name="grey_808080">#808080</color>
+    <color name="grey_888888">#888888</color>
+    <color name="grey_999999">#999999</color>
+    <color name="gray_aaaaaa">#aaaaaa</color>
+    <color name="gray_bbbbbb">#bbbbbb</color>
+    <color name="grey_bfbfbf">#bfbfbf</color>
+    <color name="gray_c9c9c9">#c9c9c9</color>
+    <color name="gray_cccccc">#cccccc</color>
+    <color name="gray_dadada">#dadada</color>
+    <color name="gray_dddbde">#dddbde</color>
+    <color name="gray_dddddd">#dddddd</color>
+    <color name="gray_e3e3e3">#e3e3e3</color>
+    <color name="gray_e5e5e5">#e5e5e5</color>
+    <color name="gray_e7e7e7">#e7e7e7</color>
+    <color name="gray_e8e8e8">#e8e8e8</color>
+    <color name="gray_eeeeee">#eeeeee</color>
+    <color name="gray_f0f0f0">#f0f0f0</color>
+    <color name="gray_f3f3f3">#f3f3f3</color>
+    <color name="gray_f5f5f5">#f5f5f5</color>
+    <color name="gray_d3d5dc">#d3d5dc</color>
+    <color name="gray_e0e0e0">#e0e0e0</color>
+    <color name="gray_999999">#999999</color>
+    <!-- 有透明度的 -->
+    <color name="transparency">#00000000</color>
+    <color name="transparency_5">#0d000000</color>
+    <color name="transparency_10">#1a000000</color>
+    <color name="transparency_15">#26000000</color>
+    <color name="transparency_20">#33000000</color>
+    <color name="transparency_25">#40000000</color>
+    <color name="transparency_30">#4d000000</color>
+    <color name="transparency_35">#59000000</color>
+    <color name="transparency_40">#66000000</color>
+    <color name="transparency_45">#73000000</color>
+    <color name="transparency_50">#80000000</color>
+    <color name="transparency_55">#8c000000</color>
+    <color name="transparency_60">#99000000</color>
+    <color name="transparency_65">#a6000000</color>
+    <color name="transparency_70">#b3000000</color>
+    <color name="transparency_75">#C0000000</color>
+    <color name="transparency_80">#cc000000</color>
+    <color name="transparency_85">#d9000000</color>
+    <color name="transparency_90">#e6000000</color>
+    <color name="transparency_95">#f2000000</color>
+
+    <color name="white_70ffffff">#b3ffffff</color>
+    <color name="white_95ffffff">#f2ffffff</color>
+</resources>

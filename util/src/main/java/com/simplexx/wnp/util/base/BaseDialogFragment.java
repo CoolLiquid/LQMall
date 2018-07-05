@@ -4,13 +4,14 @@ package com.simplexx.wnp.util.base;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import com.simplexx.wnp.baselib.basemvp.IView;
-import com.simplexx.wnp.baselib.exception.NetWorkException;
-import com.simplexx.wnp.baselib.executor.ActionRequest;
 import com.simplexx.wnp.util.BuildConfig;
 
 /**
@@ -20,7 +21,7 @@ import com.simplexx.wnp.util.BuildConfig;
  * DialogFragment---使用的是兼容库中的类
  */
 
-public abstract class BaseDialogFragment extends DialogFragment implements IView {
+public abstract class BaseDialogFragment extends DialogFragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -34,6 +35,13 @@ public abstract class BaseDialogFragment extends DialogFragment implements IView
                 return false;
             }
         });
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     /**
@@ -56,60 +64,18 @@ public abstract class BaseDialogFragment extends DialogFragment implements IView
         return (BaseActivity) getActivity();
     }
 
-    @Override
-    public void onNeedLogin(boolean otherDevice) {
-        getBaseActivity().onNeedLogin(otherDevice);
-    }
-
-    @Override
-    public void onException(Exception e) {
-        getBaseActivity().onException(e);
-    }
-
-    @Override
-    public void onException(Exception e, boolean finish) {
-        getBaseActivity().onException(e, finish);
-    }
-
-    @Override
-    public void onException(ActionRequest request, NetWorkException e) {
-        if (this.isAdded()) {
-            //todo Show ActionReloadDialog
-        }
-    }
-
-    @Override
-    public void onWarn(String message) {
-        getBaseActivity().onWarn(message);
-    }
-
-    @Override
-    public void hideKeyBoard() {
-        getBaseActivity().hideKeyBoard();
-    }
-
-    @Override
-    public void runAction(ActionRequest request) {
-        getBaseActivity().runAction(request);
-    }
-
-    @Override
-    public boolean viewDestroyed() {
-        return this.isDetached();
-    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        hideKeyBoard();
     }
 
     public void singleShow(FragmentManager manager) {
         if (this.isAdded() || isVisible() || isRemoving() || manager == null)
             return;
-        if (BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             show(manager, getClass().getName());
-        }else {
+        } else {
             try {
                 show(manager, getClass().getName());
             } catch (Exception e) {

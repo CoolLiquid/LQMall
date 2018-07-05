@@ -34,7 +34,7 @@ public final class CacheGetter<T> {
     }
 
     /**
-     * åº•å±‚getï¼Œä¼šæŠ›å‡ºå¼‚å¸¸ï¼Œä¸æŠ›å¼‚å¸¸ä½¿ç”¨
+     * µ×²ãget£¬»áÅ×³öÒì³££¬²»Å×Òì³£Ê¹ÓÃ
      *
      * @param preferCache
      * @return
@@ -60,19 +60,19 @@ public final class CacheGetter<T> {
     }
 
     /**
-     * ä¼˜å…ˆè·å–ç¼“å­˜ï¼Œå¦‚æœç¼“å­˜è¿‡æœŸè·å–Getterï¼ŒGetterå¤±è´¥çš„è¯ä¼šè¿”å›ç¼“å­˜
+     * ÓÅÏÈ»ñÈ¡»º´æ£¬Èç¹û»º´æ¹ıÆÚ»ñÈ¡Getter£¬GetterÊ§°ÜµÄ»°»á·µ»Ø»º´æ
      *
-     * @return å¦‚æœç¼“å­˜å’ŒGetteréƒ½å¤±è´¥ï¼Œè¿”å›null
+     * @return Èç¹û»º´æºÍGetter¶¼Ê§°Ü£¬·µ»Ønull
      */
     public T get() {
         return get(true);
     }
 
     /**
-     * æ ¹æ®preferCacheç­–ç•¥è·å–ç¼“å­˜
+     * ¸ù¾İpreferCache²ßÂÔ»ñÈ¡»º´æ
      *
-     * @param preferCache å¦‚æœä¸ºfalseï¼Œå…ˆè·å–Getterï¼Œå¦‚æœGetterè·å–å¤±è´¥è¿”å›ç¼“å­˜
-     * @return å¦‚æœç¼“å­˜å’ŒGetteréƒ½å¤±è´¥ï¼Œè¿”å›null
+     * @param preferCache Èç¹ûÎªfalse£¬ÏÈ»ñÈ¡Getter£¬Èç¹ûGetter»ñÈ¡Ê§°Ü·µ»Ø»º´æ
+     * @return Èç¹û»º´æºÍGetter¶¼Ê§°Ü£¬·µ»Ønull
      */
 
     public T get(boolean preferCache) {

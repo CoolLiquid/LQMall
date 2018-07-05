@@ -17,10 +17,22 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter, LoginPr
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login);
+        getPresenter().request();
     }
 
     @Override
     protected void injectPresenter(PresenterComponent component, LoginPresenter preseneter) {
         component.inject(preseneter);
+    }
+
+
+    @Override
+    protected void onForceLogout() {
+
+    }
+
+    @Override
+    protected void onTokenOutDate() {
+
     }
 }

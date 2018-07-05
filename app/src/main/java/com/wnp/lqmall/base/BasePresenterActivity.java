@@ -30,4 +30,9 @@ public abstract class BasePresenterActivity<T extends BasePresenter<E>, E extend
     protected boolean canRotateScreen() {
         return false;
     }
+
+    @Override
+    protected boolean onBeforeBackPressed() {
+        return false;
+    }
 }

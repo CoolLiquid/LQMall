@@ -16,12 +16,12 @@ import com.simplexx.wnp.baselib.util.StringUtil;
 import com.simplexx.wnp.util.KeyBoardUtils;
 import com.simplexx.wnp.util.ToastUtils;
 import com.simplexx.wnp.util.executor.ThreadExecutor;
+import com.simplexx.wnp.util.ui.dialog.ActionLoadingDialogFragment;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 /**
- * 1.还欠各种弹窗
  * 2.需要接入ActivityHelper,同时完善onNeedLogin方法
  * Created by wnp on 2018/6/25.
  */
@@ -111,7 +111,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getRepeatCount() == 0) {
             if (onBeforeBackPressed())
@@ -123,7 +122,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
 
     }
 
-    private boolean onBeforeBackPressed() {
+    protected boolean onBeforeBackPressed() {
         // TODO: 2018/7/3 这里需要使用activityHelper，来做相应的逻辑判断
         return false;
     }
@@ -231,14 +230,15 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
     }
 
     @Override
-    public void showLoadingView(ActionRequest request) {
+    public void showLoadingView(final ActionRequest request) {
         safeRunAfterSaveInstanceState(new Runnable() {
             @Override
             public void run() {
+
                 ThreadExecutor.runInMain(new Runnable() {
                     @Override
                     public void run() {
-                        //显示一个loadingDialog
+                        ActionLoadingDialogFragment.singleShow(BaseActivity.this, request);
                     }
                 });
             }
@@ -250,8 +250,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
         safeRunAfterSaveInstanceState(new Runnable() {
             @Override
             public void run() {
-                //关闭loadingDialog
-                //此时的dialogDialog使用的是单利模式
+                ActionLoadingDialogFragment.dismiss(BaseActivity.this);
             }
         });
     }

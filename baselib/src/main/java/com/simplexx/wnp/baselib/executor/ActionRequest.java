@@ -13,58 +13,59 @@ import java.util.List;
 public class ActionRequest implements Runnable {
 
 
-    // æ˜¾ç¤ºåŠ è½½ä¸­æ ·å¼ï¼Œå¼‚æ­¥
+    // ÏÔÊ¾¼ÓÔØÖĞÑùÊ½£¬Òì²½
     public final static int RUN_TYPE_LOADING = 0;
-    //åå°è¿è¡Œï¼Œå¼‚æ­¥
+    //ºóÌ¨ÔËĞĞ£¬Òì²½
     public final static int RUN_TYPE_BACKGROUND = 1;
-    //åœ¨å½“å‰çº¿ç¨‹è¿è¡Œï¼ŒåŒæ­¥
+    //ÔÚµ±Ç°Ïß³ÌÔËĞĞ£¬Í¬²½
     public final static int RUN_TYPE_LOCK = 2;
-
-    //è°ƒç”¨å¤±è´¥åä¸åšä»»ä½•é‡è¯•å¤„ç†
+    //µ÷ÓÃÊ§°Üºó²»×öÈÎºÎÖØÊÔ´¦Àí
     public final static int HANDLE_ON_EXCEPTION_NONE = 0;
-    //åœ¨ç”¨æˆ·ç‚¹å‡»é‡è¯•çš„æ—¶å€™è¿›è¡Œé‡æ–°è°ƒç”¨
+    //ÔÚÓÃ»§µã»÷ÖØÊÔµÄÊ±ºò½øĞĞÖØĞÂµ÷ÓÃ
     public final static int HANDLE_ON_EXCEPTION_USER_RELOAD = 1;
 
 
-    //æŒ‰è¿”å›é”®æ—¶å…³é—­é‡æ–°åŠ è½½çš„æç¤ºï¼Œé»˜è®¤
+    //°´·µ»Ø¼üÊ±¹Ø±ÕÖØĞÂ¼ÓÔØµÄÌáÊ¾£¬Ä¬ÈÏ
     public final static int BACK_ON_EXCEPTION_TYPE_CLOSE = 0;
-    //æŒ‰è¿”å›é”®æ—¶å…³é—­activityæˆ–fragmentï¼Œåœ¨å“ªé‡Œå¼¹å‡ºå…³é‚£å¼ ,ç•¥å±é™©ã€éœ€ç¡®å®šä½ è¦å…³é—­çš„æ˜¯é€»è¾‘ä¸Šèƒ½å…³é—­çš„ç•Œé¢
+    //°´·µ»Ø¼üÊ±¹Ø±Õactivity»òfragment£¬ÔÚÄÄÀïµ¯³ö¹ØÄÇÕÅ,ÂÔÎ£ÏÕ¡¢ĞèÈ·¶¨ÄãÒª¹Ø±ÕµÄÊÇÂß¼­ÉÏÄÜ¹Ø±ÕµÄ½çÃæ
     public final static int BACK_ON_EXCEPTION_TYPE_FINISH_PARENT = 1;
-    //ä¸å…è®¸è¿”å›ï¼Œåªèƒ½é‡æ–°åŠ è½½
+    //²»ÔÊĞí·µ»Ø£¬Ö»ÄÜÖØĞÂ¼ÓÔØ
     public final static int BACK_ON_EXCEPTION_TYPE_DISALLOWED = 2;
 
 
     public static class Builder {
-        private final static String DEFAULT_LOADING_MESSAGE = "è¯·ç¨å";
+        private final static String DEFAULT_LOADING_MESSAGE = "ÇëÉÔµÈ";
 
         private ActionRunnable runnable = null;
-        private int handleOnExceptionType = HANDLE_ON_EXCEPTION_NONE;//åŠ è½½å¤±è´¥ä¹‹åï¼Œåšå‡ºç›¸åº”çš„å¤„ç†
+        private int handleOnExceptionType = HANDLE_ON_EXCEPTION_NONE;//¼ÓÔØÊ§°ÜÖ®ºó£¬×ö³öÏàÓ¦µÄ´¦Àí
         private String loadingMessage = DEFAULT_LOADING_MESSAGE;
-        private int runType = RUN_TYPE_LOADING;//å‰å°æ˜¾ç¤ºæ¨¡å¼è¿˜æ˜¯åå°æ¨¡å¼
-        private int backOnExceptionType = BACK_ON_EXCEPTION_TYPE_CLOSE;//ç‚¹å‡»è¿”å›é”®ï¼Œæ˜¾ç¤ºçš„æ•ˆæœ
+        private int runType = RUN_TYPE_LOADING;//Ç°Ì¨ÏÔÊ¾Ä£Ê½»¹ÊÇºóÌ¨Ä£Ê½
+        private int backOnExceptionType = BACK_ON_EXCEPTION_TYPE_CLOSE;//µã»÷·µ»Ø¼ü£¬ÏÔÊ¾µÄĞ§¹û
         private List<Runnable> successRunnableList = new ArrayList<>();
         private List<Runnable> failRunnableList = new ArrayList<>();
         private List<Runnable> completedRunnableList = new ArrayList<>();
         private IView view = null;
 
-        public Builder addOnSuccessListener(Runnable runnable, Runnable... runnableArray){
-            if(runnable != null)
+        public Builder addOnSuccessListener(Runnable runnable, Runnable... runnableArray) {
+            if (runnable != null)
                 this.successRunnableList.add(runnable);
-            if(runnableArray != null)
+            if (runnableArray != null)
                 this.successRunnableList.addAll(Arrays.asList(runnableArray));
             return this;
         }
-        public Builder addOnFailListener(Runnable runnable, Runnable... runnableArray){
-            if(runnable != null)
+
+        public Builder addOnFailListener(Runnable runnable, Runnable... runnableArray) {
+            if (runnable != null)
                 this.failRunnableList.add(runnable);
-            if(runnableArray != null)
+            if (runnableArray != null)
                 this.failRunnableList.addAll(Arrays.asList(runnableArray));
             return this;
         }
-        public Builder addOnCompletedListener(Runnable runnable, Runnable... runnableArray){
-            if(runnable != null)
+
+        public Builder addOnCompletedListener(Runnable runnable, Runnable... runnableArray) {
+            if (runnable != null)
                 this.completedRunnableList.add(runnable);
-            if(runnableArray != null)
+            if (runnableArray != null)
                 this.completedRunnableList.addAll(Arrays.asList(runnableArray));
             return this;
         }
@@ -78,20 +79,21 @@ public class ActionRequest implements Runnable {
             this.handleOnExceptionType = handleOnExceptionType;
             return this;
         }
+
         public Builder setRunType(int runType) {
             this.runType = runType;
             return this;
         }
 
-        public Builder setRunBackground(){
+        public Builder setRunBackground() {
             return setRunType(RUN_TYPE_BACKGROUND);
         }
 
-        public Builder setRunLoading(){
+        public Builder setRunLoading() {
             return setRunType(RUN_TYPE_LOADING);
         }
 
-        public Builder setRunLock(){
+        public Builder setRunLock() {
             return setRunType(RUN_TYPE_LOCK);
         }
 
@@ -100,40 +102,40 @@ public class ActionRequest implements Runnable {
             return this;
         }
 
-        public Builder setAllowUserReload(){
+        public Builder setAllowUserReload() {
             return setHandleOnExceptionType(HANDLE_ON_EXCEPTION_USER_RELOAD);
         }
 
-        public Builder setBackOnExceptionType(int backOnExceptionType){
+        public Builder setBackOnExceptionType(int backOnExceptionType) {
             this.backOnExceptionType = backOnExceptionType;
             return this;
         }
 
-        public Builder setBackOnExceptionClose(){
+        public Builder setBackOnExceptionClose() {
             setBackOnExceptionType(BACK_ON_EXCEPTION_TYPE_CLOSE);
             return this;
         }
 
-        public Builder setBackOnExceptionFinishParent(){
+        public Builder setBackOnExceptionFinishParent() {
             setBackOnExceptionType(BACK_ON_EXCEPTION_TYPE_FINISH_PARENT);
             return this;
         }
 
-        public Builder setBackOnExceptionDisallowed(){
+        public Builder setBackOnExceptionDisallowed() {
             setBackOnExceptionType(BACK_ON_EXCEPTION_TYPE_DISALLOWED);
             return this;
         }
 
-        public Builder setView(IView view){
+        public Builder setView(IView view) {
             this.view = view;
             return this;
         }
 
-        public ActionRequest build(){
+        public ActionRequest build() {
             return new ActionRequest(this);
         }
 
-        public void run(){
+        public void run() {
             build().run();
         }
     }
@@ -161,7 +163,7 @@ public class ActionRequest implements Runnable {
         this.view = builder.view;
     }
 
-    public int getRunType(){
+    public int getRunType() {
         return this.runType;
     }
 
@@ -182,7 +184,7 @@ public class ActionRequest implements Runnable {
     }
 
     public synchronized void setResultSuccessful() {
-        if(result == null) {
+        if (result == null) {
             result = true;
             try {
                 runRunableList(successRunnableList);
@@ -193,7 +195,7 @@ public class ActionRequest implements Runnable {
     }
 
     public synchronized void setResultFailed() {
-        if(result == null) {
+        if (result == null) {
             result = false;
             try {
                 runRunableList(failRunnableList);
@@ -203,10 +205,10 @@ public class ActionRequest implements Runnable {
         }
     }
 
-    private void runRunableList(List<Runnable> runnableList){
-        if(runnableList != null)
+    private void runRunableList(List<Runnable> runnableList) {
+        if (runnableList != null)
             for (Runnable runnable : runnableList) {
-                if(runnable != null)
+                if (runnable != null)
                     runnable.run();
             }
     }
@@ -214,7 +216,6 @@ public class ActionRequest implements Runnable {
     public IView getView() {
         return view;
     }
-
 
 
     @Override

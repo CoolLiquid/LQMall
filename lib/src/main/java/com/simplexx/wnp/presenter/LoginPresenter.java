@@ -1,6 +1,7 @@
 package com.simplexx.wnp.presenter;
 
 import com.simplexx.wnp.baselib.basemvp.IView;
+import com.simplexx.wnp.baselib.executor.ActionRunnable;
 
 /**
  * Created by wnp on 2018/7/2.
@@ -13,6 +14,20 @@ public class LoginPresenter extends BasePresenter<LoginPresenter.ILoginView> {
 
     public interface ILoginView extends IView {
 
+    }
+
+    public void request() {
+        newActionBuilder().setRunnable(new ActionRunnable() {
+
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).setRunLoading().run();
     }
 
     @Override

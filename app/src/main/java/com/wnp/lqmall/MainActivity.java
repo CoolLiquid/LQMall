@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.simplexx.wnp.util.ui.dialog.ActionLoadingDialogFragment;
 import com.wnp.lqmall.activity.LoginActivity;
 
 import butterknife.BindView;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        textView.setText("你们号");
 
     }
 }

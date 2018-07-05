@@ -13,10 +13,10 @@ public class Version implements Comparable<Version> {
     private Integer revision;
 
     /**
-     * @param major    ä¸»ç‰ˆæœ¬å·
-     * @param minor    æ¬¡ç‰ˆæœ¬å·
-     * @param build    å†…éƒ¨ç‰ˆæœ¬å·
-     * @param revision ä¿®è®¢å·
+     * @param major    Ö÷°æ±¾ºÅ
+     * @param minor    ´Î°æ±¾ºÅ
+     * @param build    ÄÚ²¿°æ±¾ºÅ
+     * @param revision ĞŞ¶©ºÅ
      */
     public Version(int major, int minor, int build, int revision) {
         init(major, minor, build, revision);

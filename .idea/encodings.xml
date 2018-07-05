@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/Sessions.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/exception/UnLoginException.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/executor/ActionRequest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/lang/Version.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/repositories/CacheGetter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/repositories/CacheStore.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/ui/ClientSettings.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/util/DateUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/baselib/src/main/java/com/simplexx/wnp/baselib/util/StringUtil.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

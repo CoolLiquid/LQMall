@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparency"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:id="@+id/contentWrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/qmui_tip_dialog_bg"
+        android:gravity="center"
+        android:minHeight="76dp"
+        android:minWidth="120dp"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_12">
+
+        <com.simplexx.wnp.util.ui.widget.QMUILoadingView
+            android:id="@+id/loadingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:qmui_loading_view_size="@dimen/dp_20" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:textColor="@color/white_ffffff"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

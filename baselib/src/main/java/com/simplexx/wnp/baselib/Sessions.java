@@ -11,8 +11,8 @@ import java.util.Date;
  */
 
 public class Sessions {
-    private final static int DEFAULT_MONTH_EXPIRED = 28;//Sessionsè¿‡æœŸæ—¶é—´é—´éš”--30å¤©
-    private final static int DEFAULT_SECOND_EXPIRED = 300;//Sessionséœ€è¦åˆ·æ–°çš„æ—¶é—´é—´éš”--5åˆ†é’Ÿ
+    private final static int DEFAULT_MONTH_EXPIRED = 28;//Sessions¹ıÆÚÊ±¼ä¼ä¸ô--30Ìì
+    private final static int DEFAULT_SECOND_EXPIRED = 300;//SessionsĞèÒªË¢ĞÂµÄÊ±¼ä¼ä¸ô--5·ÖÖÓ
 
     @Expose
     private String accessSessions;

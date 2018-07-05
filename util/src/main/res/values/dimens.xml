@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="dp_4">4dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_22">22dp</dimen>
+    <dimen name="dp_35">35dp</dimen>
+    <dimen name="default_keyboard_height">276dp</dimen>
+    <dimen name="font_18">11dp</dimen>
+    <dimen name="font_20">12dp</dimen>
+    <dimen name="font_22">12.5dp</dimen>
+    <dimen name="font_24">13dp</dimen>
+    <dimen name="font_26">14dp</dimen>
+    <dimen name="font_28">15dp</dimen>
+    <dimen name="font_30">16dp</dimen>
+    <dimen name="font_32">17dp</dimen>
+    <dimen name="font_34">18dp</dimen>
+    <dimen name="font_36">20dp</dimen>
+    <dimen name="font_60">30dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>

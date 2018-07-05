@@ -18,7 +18,7 @@ public class ClientSettings {
 
     public static class DeviceInfo {
         /**
-         * åˆ†è¾¨ç‡
+         * ·Ö±æÂÊ
          *
          * @return
          */
@@ -29,7 +29,7 @@ public class ClientSettings {
         private String resolution;
 
         /**
-         * ç³»ç»Ÿç‰ˆæœ¬
+         * ÏµÍ³°æ±¾
          *
          * @return
          */
@@ -40,7 +40,7 @@ public class ClientSettings {
         private String os;
 
         /**
-         * æ‰‹æœºå‹å·
+         * ÊÖ»úĞÍºÅ
          *
          * @return
          */
@@ -121,9 +121,9 @@ public class ClientSettings {
     }
 
     /**
-     * å·²ç»ç™»é™†è¿‡
+     * ÒÑ¾­µÇÂ½¹ı
      *
-     * @return trueä¸ºå·²ç»ç™»é™†è¿‡
+     * @return trueÎªÒÑ¾­µÇÂ½¹ı
      */
     public boolean isFirstLoggined() {
         Boolean value = getSingleRepository("first-loggined", Boolean.class).get();

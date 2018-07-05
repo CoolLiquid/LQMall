@@ -8,15 +8,17 @@ import android.view.ViewGroup;
 
 import com.simplexx.wnp.baselib.basemvp.BasePresenter;
 import com.simplexx.wnp.baselib.basemvp.IView;
+import com.simplexx.wnp.baselib.exception.NetWorkException;
 import com.simplexx.wnp.baselib.executor.ActionRequest;
 import com.simplexx.wnp.util.PresenterUtil;
 import com.simplexx.wnp.util.executor.ThreadExecutor;
+import com.simplexx.wnp.util.ui.dialog.ActionLoadingDialogFragment;
 
 /**
  * Created by wnp on 2018/7/3.
  */
 
-public class PresenterDialogFragment<T extends BasePresenter<E>, E extends IView> extends BaseDialogFragment {
+public class PresenterDialogFragment<T extends BasePresenter<E>, E extends IView> extends BaseDialogFragment implements IView {
     T presenter;
 
     protected T createPresenter() {
@@ -43,12 +45,54 @@ public class PresenterDialogFragment<T extends BasePresenter<E>, E extends IView
     }
 
     @Override
-    public void showLoadingView(ActionRequest request) {
+    public void onNeedLogin(boolean otherDevice) {
+        getBaseActivity().onNeedLogin(otherDevice);
+    }
+
+    @Override
+    public void onException(Exception e) {
+        getBaseActivity().onException(e);
+    }
+
+    @Override
+    public void onException(Exception e, boolean finish) {
+        getBaseActivity().onException(e, finish);
+    }
+
+    @Override
+    public void onException(ActionRequest request, NetWorkException e) {
+        if (this.isAdded()) {
+            //todo Show ActionReloadDialog
+        }
+    }
+
+    @Override
+    public void onWarn(String message) {
+        getBaseActivity().onWarn(message);
+    }
+
+    @Override
+    public void hideKeyBoard() {
+        getBaseActivity().hideKeyBoard();
+    }
+
+    @Override
+    public void runAction(ActionRequest request) {
+        getBaseActivity().runAction(request);
+    }
+
+    @Override
+    public boolean viewDestroyed() {
+        return this.isDetached();
+    }
+
+    @Override
+    public void showLoadingView(final ActionRequest request) {
         ThreadExecutor.runInMain(new Runnable() {
             @Override
             public void run() {
                 if (PresenterDialogFragment.this.isAdded()) {
-
+                    ActionLoadingDialogFragment.singleShow(getBaseActivity(), request);
                 }
             }
         });
@@ -60,7 +104,7 @@ public class PresenterDialogFragment<T extends BasePresenter<E>, E extends IView
             @Override
             public void run() {
                 if (PresenterDialogFragment.this.isAdded()) {
-
+                    ActionLoadingDialogFragment.dismiss(getBaseActivity());
                 }
             }
         });
@@ -94,5 +138,6 @@ public class PresenterDialogFragment<T extends BasePresenter<E>, E extends IView
     public void onDestroy() {
         super.onDestroy();
         presenter.onViewDestroy();
+        hideKeyBoard();
     }
 }

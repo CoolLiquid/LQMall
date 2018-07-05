@@ -34,10 +34,10 @@ public class DateUtil {
     }
 
     /**
-     * è·å–è¾“å…¥å‚æ•°çš„å¹´æœˆæ—¥è¿”å›
+     * »ñÈ¡ÊäÈë²ÎÊıµÄÄêÔÂÈÕ·µ»Ø
      *
      * @param date
-     * @return å¹´æœˆæ—¥
+     * @return ÄêÔÂÈÕ
      */
     public static Date getDate(Date date) {
         Calendar calendar = getCalendar();
@@ -85,7 +85,7 @@ public class DateUtil {
     }
 
     /**
-     * è·å–ç°åœ¨æ—¶é—´çš„å­—ç¬¦ä¸²
+     * »ñÈ¡ÏÖÔÚÊ±¼äµÄ×Ö·û´®
      */
     public static String getCurrentTimeStr() {
         if (allFormat == null) {
@@ -96,7 +96,7 @@ public class DateUtil {
     }
 
     /**
-     * è·å–å½“å¤©
+     * »ñÈ¡µ±Ìì
      */
     public static String getCurrentDay() {
         if (allFormat == null) {
@@ -107,7 +107,7 @@ public class DateUtil {
     }
 
     /**
-     * å°†ä¸€ä¸ªæ—¶åŒºçš„æ—¶é—´æˆ³è½¬æ¢ä¸ºUtcæ—¶é—´æˆ³
+     * ½«Ò»¸öÊ±ÇøµÄÊ±¼ä´Á×ª»»ÎªUtcÊ±¼ä´Á
      *
      * @param time
      * @param zone
@@ -119,7 +119,7 @@ public class DateUtil {
     }
 
     /**
-     * å°†é»˜è®¤æ—¶åŒºçš„æ—¶é—´æˆ³è½¬æ¢ä¸ºUtcæ—¶é—´æˆ³
+     * ½«Ä¬ÈÏÊ±ÇøµÄÊ±¼ä´Á×ª»»ÎªUtcÊ±¼ä´Á
      *
      * @param time
      * @return
@@ -129,7 +129,7 @@ public class DateUtil {
     }
 
     /**
-     * å°†Utcæ—¶é—´æˆ³è½¬æ¢ä¸ºä¸€ä¸ªæ—¶åŒºçš„æ—¶é—´æˆ³
+     * ½«UtcÊ±¼ä´Á×ª»»ÎªÒ»¸öÊ±ÇøµÄÊ±¼ä´Á
      *
      * @param time
      * @param zone
@@ -163,7 +163,7 @@ public class DateUtil {
 
 
     /**
-     * å°†Utcæ—¶é—´æˆ³è½¬æ¢ä¸ºé»˜è®¤æ—¶åŒºçš„æ—¶é—´æˆ³
+     * ½«UtcÊ±¼ä´Á×ª»»ÎªÄ¬ÈÏÊ±ÇøµÄÊ±¼ä´Á
      *
      * @param time
      * @return
@@ -173,7 +173,7 @@ public class DateUtil {
     }
 
     /**
-     * æŠŠå¸¦æœ‰æ—¶é—´å­—ç¬¦ä¸²çš„Tå­—ç¬¦æ›¿æ¢
+     * °Ñ´øÓĞÊ±¼ä×Ö·û´®µÄT×Ö·ûÌæ»»
      *
      * @param time
      * @return
@@ -188,7 +188,7 @@ public class DateUtil {
 
 
     /**
-     * æŠŠStringæ—¥æœŸè½¬æˆæŒ‡å®šæ ¼å¼
+     * °ÑStringÈÕÆÚ×ª³ÉÖ¸¶¨¸ñÊ½
      */
     public static String getDateFormat(String strDate, String format) {
         if (strDate != null && strDate.length() > 0) {
@@ -270,7 +270,7 @@ public class DateUtil {
     }
 
 
-    //è·å–å¤„ç†åçš„æ—¶é—´
+    //»ñÈ¡´¦ÀíºóµÄÊ±¼ä
     public static String getInterval(Date date) {
         String interval = "";
         Calendar c = Calendar.getInstance();
@@ -282,24 +282,24 @@ public class DateUtil {
             second = 0;
         }
         if (second < 60) {
-            interval = "åˆšåˆš";
+            interval = "¸Õ¸Õ";
         } else if (second < 60 * 60) {
-            interval = (int) (second / 60) + "åˆ†é’Ÿå‰";
+            interval = (int) (second / 60) + "·ÖÖÓÇ°";
         } else {
             int hour = c.get(Calendar.HOUR_OF_DAY);
             int day = c.get(Calendar.DAY_OF_MONTH);
             int month = c.get(Calendar.MONTH);
             int year = c.get(Calendar.YEAR);
 
-            if (Calendar.getInstance().get(Calendar.YEAR) == year) {// åŒå¹´
-                if (Calendar.getInstance().get(Calendar.MONTH) == month) {// åŒæœˆ
+            if (Calendar.getInstance().get(Calendar.YEAR) == year) {// Í¬Äê
+                if (Calendar.getInstance().get(Calendar.MONTH) == month) {// Í¬ÔÂ
                     switch (Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
                             - day) {
-                        case 0:// å½“å¤©
+                        case 0:// µ±Ìì
                             interval += dateToString(date, " HH:mm");
                             break;
-                        case 1:// æ˜¨å¤©
-                            interval += "æ˜¨å¤© ";
+                        case 1:// ×òÌì
+                            interval += "×òÌì ";
                             break;
                         default:
                             interval = dateToString(date, "MM-dd");
@@ -316,8 +316,8 @@ public class DateUtil {
     }
 
     /**
-     * ä¸å½“å‰æ—¶é—´æ¯”è¾ƒ
-     * true ï¼šè¿‡æœŸ  ï¼›falseï¼šæœªåˆ°æœŸ
+     * Óëµ±Ç°Ê±¼ä±È½Ï
+     * true £º¹ıÆÚ  £»false£ºÎ´µ½ÆÚ
      *
      * @return
      */
@@ -326,8 +326,8 @@ public class DateUtil {
     }
 
     /**
-     * ä¸å½“å‰æ—¶é—´æ¯”è¾ƒ
-     * true ï¼šè¿‡æœŸ  ï¼›falseï¼šæœªåˆ°æœŸ
+     * Óëµ±Ç°Ê±¼ä±È½Ï
+     * true £º¹ıÆÚ  £»false£ºÎ´µ½ÆÚ
      *
      * @return
      */
@@ -337,11 +337,11 @@ public class DateUtil {
 
 
     /**
-     * è·å–ä¸å½“å‰æ—¶é—´å·®
-     * ä¼ å…¥æ—¶é—´å‡å»å½“å‰æ—¶é—´
-     * è¿”å›ç§’
+     * »ñÈ¡Óëµ±Ç°Ê±¼ä²î
+     * ´«ÈëÊ±¼ä¼õÈ¥µ±Ç°Ê±¼ä
+     * ·µ»ØÃë
      *
-     * @returnå¤§äº0ï¼Œè¡¨ç¤ºæœªåˆ°æœŸï¼›å°äº0ï¼Œå·²åˆ°æœŸ
+     * @return´óÓÚ0£¬±íÊ¾Î´µ½ÆÚ£»Ğ¡ÓÚ0£¬ÒÑµ½ÆÚ
      */
     public static long getDistanceFromNow(String time) {
         if (StringUtil.isNullOrEmpty(time))
@@ -360,11 +360,11 @@ public class DateUtil {
 
 
     /**
-     * è·å–ä¸å½“å‰æ—¶é—´å·®
-     * ä¼ å…¥æ—¶é—´å‡å»å½“å‰æ—¶é—´
-     * è¿”å›ç§’
+     * »ñÈ¡Óëµ±Ç°Ê±¼ä²î
+     * ´«ÈëÊ±¼ä¼õÈ¥µ±Ç°Ê±¼ä
+     * ·µ»ØÃë
      *
-     * @returnå¤§äº0ï¼Œè¡¨ç¤ºæœªåˆ°æœŸï¼›å°äº0ï¼Œå·²åˆ°æœŸ
+     * @return´óÓÚ0£¬±íÊ¾Î´µ½ÆÚ£»Ğ¡ÓÚ0£¬ÒÑµ½ÆÚ
      */
     public static long getDistanceFromNow(Date nextDate) {
         if (nextDate == null)
@@ -375,8 +375,8 @@ public class DateUtil {
 
 
     /**
-     * è·å–å½“å‰æ—¶é—´å·®
-     * è¿”å›å°æ—¶
+     * »ñÈ¡µ±Ç°Ê±¼ä²î
+     * ·µ»ØĞ¡Ê±
      *
      * @param time
      * @return
@@ -396,8 +396,8 @@ public class DateUtil {
     }
 
     /**
-     * è·å–å½“å‰æ—¶é—´å·®è¿”å›å¤©æ•°
-     * åˆ¤æ–­å½“å‰æ—¶é—´æ˜¯å¦è¶…è¿‡æŒ‡å®šæ—¶é—´nå¤©
+     * »ñÈ¡µ±Ç°Ê±¼ä²î·µ»ØÌìÊı
+     * ÅĞ¶Ïµ±Ç°Ê±¼äÊÇ·ñ³¬¹ıÖ¸¶¨Ê±¼änÌì
      *
      * @return
      */
@@ -423,12 +423,12 @@ public class DateUtil {
     }
 
     public static boolean isNight() {
-        Calendar cal = Calendar.getInstance();// å½“å‰æ—¥æœŸ
-        int hour = cal.get(Calendar.HOUR_OF_DAY);// è·å–å°æ—¶
-        int minute = cal.get(Calendar.MINUTE);// è·å–åˆ†é’Ÿ
-        int minuteOfDay = hour * 60 + minute;// ä»0:00åˆ†å¼€æ˜¯åˆ°ç›®å‰ä¸ºæ­¢çš„åˆ†é’Ÿæ•°
-        final int start = 22 * 60;// èµ·å§‹æ—¶é—´ 00:20çš„åˆ†é’Ÿæ•°
-        final int end = 8 * 60;// ç»“æŸæ—¶é—´ 8:00çš„åˆ†é’Ÿæ•°
+        Calendar cal = Calendar.getInstance();// µ±Ç°ÈÕÆÚ
+        int hour = cal.get(Calendar.HOUR_OF_DAY);// »ñÈ¡Ğ¡Ê±
+        int minute = cal.get(Calendar.MINUTE);// »ñÈ¡·ÖÖÓ
+        int minuteOfDay = hour * 60 + minute;// ´Ó0:00·Ö¿ªÊÇµ½Ä¿Ç°ÎªÖ¹µÄ·ÖÖÓÊı
+        final int start = 22 * 60;// ÆğÊ¼Ê±¼ä 00:20µÄ·ÖÖÓÊı
+        final int end = 8 * 60;// ½áÊøÊ±¼ä 8:00µÄ·ÖÖÓÊı
         if (minuteOfDay >= start && minuteOfDay <= end) {
             return true;
         } else {
@@ -443,7 +443,7 @@ public class DateUtil {
     }
 
     /**
-     * å°†æ—¶é—´å­—ç¬¦ä¸²æˆªå–åˆ°è‡ªå®šä¹‰
+     * ½«Ê±¼ä×Ö·û´®½ØÈ¡µ½×Ô¶¨Òå
      */
     public static String getTimeFormat(String dateString, String format) {
         String time = "";
@@ -459,7 +459,7 @@ public class DateUtil {
     }
 
     /**
-     * æ ¼å¼åŒ–ä¸º æœˆ-æ—¥
+     * ¸ñÊ½»¯Îª ÔÂ-ÈÕ
      *
      * @param timeMillis
      * @return
@@ -480,14 +480,14 @@ public class DateUtil {
         int month = c.get(Calendar.MONTH) + 1;
         int year = c.get(Calendar.YEAR);
         if (currentYear == year) {
-            return month + "æœˆ" + day;
+            return month + "ÔÂ" + day;
         } else {
-            return year + "å¹´" + month + "æœˆ" + day;
+            return year + "Äê" + month + "ÔÂ" + day;
         }
     }
 
     /**
-     * æ ¼å¼åŒ–ä¸º å¹´-æœˆ-æ—¥
+     * ¸ñÊ½»¯Îª Äê-ÔÂ-ÈÕ
      *
      * @param timeMillis
      * @return
@@ -524,7 +524,7 @@ public class DateUtil {
     }
 
 
-    public static String getShuntDate(int i) { // //è·å–å‰åæ—¥æœŸ iä¸ºæ­£æ•° å‘åæ¨è¿Ÿiå¤©ï¼Œè´Ÿæ•°æ—¶å‘å‰æå‰iå¤©
+    public static String getShuntDate(int i) { // //»ñÈ¡Ç°ºóÈÕÆÚ iÎªÕıÊı ÏòºóÍÆ³ÙiÌì£¬¸ºÊıÊ±ÏòÇ°ÌáÇ°iÌì
         Date dat = null;
         Calendar cd = Calendar.getInstance();
         cd.add(Calendar.DATE, i);
@@ -534,11 +534,11 @@ public class DateUtil {
     }
 
     public static int getExpired(String expired) {
-        // è®¾ç½®å¤©æ•°
+        // ÉèÖÃÌìÊı
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         long time1 = cal.getTimeInMillis();
-        // è½¬æ ¼å¼
+        // ×ª¸ñÊ½
         SimpleDateFormat sdf = new SimpleDateFormat(TIME_FORMAT);
         try {
             expired = dateToString(stringToDate(expired, TIME_FORMAT), TIME_FORMAT);
@@ -561,7 +561,7 @@ public class DateUtil {
 
 
     /**
-     * å¾—åˆ°å‡ å¤©å‰çš„æ—¶é—´
+     * µÃµ½¼¸ÌìÇ°µÄÊ±¼ä
      *
      * @param d
      * @param day
@@ -575,7 +575,7 @@ public class DateUtil {
     }
 
     /**
-     * å¾—åˆ°å‡ å¤©åçš„æ—¶é—´
+     * µÃµ½¼¸ÌìºóµÄÊ±¼ä
      *
      * @param d
      * @param day
@@ -589,7 +589,7 @@ public class DateUtil {
     }
 
     /**
-     * é€šè¿‡æ—¶é—´ç§’æ¯«ç§’æ•°åˆ¤æ–­ä¸¤ä¸ªæ—¶é—´çš„å¤©æ•°é—´éš”
+     * Í¨¹ıÊ±¼äÃëºÁÃëÊıÅĞ¶ÏÁ½¸öÊ±¼äµÄÌìÊı¼ä¸ô
      *
      * @param date1
      * @param date2
