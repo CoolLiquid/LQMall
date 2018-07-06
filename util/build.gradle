@@ -33,4 +33,5 @@ dependencies {
     compile project(':baselib')
     implementation 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.jakewharton:disklrucache:2.0.2'
+//    compile 'com.ninetripods:aop-permission:1.0.8'
 }
