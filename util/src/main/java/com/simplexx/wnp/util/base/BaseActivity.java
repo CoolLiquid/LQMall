@@ -16,6 +16,7 @@ import com.simplexx.wnp.baselib.util.StringUtil;
 import com.simplexx.wnp.util.KeyBoardUtils;
 import com.simplexx.wnp.util.ToastUtils;
 import com.simplexx.wnp.util.executor.ThreadExecutor;
+import com.simplexx.wnp.util.ui.ActivitiesManager;
 import com.simplexx.wnp.util.ui.dialog.ActionLoadingDialogFragment;
 
 import java.util.ArrayDeque;
@@ -29,6 +30,12 @@ import java.util.Queue;
 public abstract class BaseActivity extends AppCompatActivity implements IView {
     private final Queue<Runnable> saveInstanceStateRunnables = new ArrayDeque<>();
     private boolean isSavedInstanceState;
+    private ActivitiesManager activitiesManager = new ActivitiesManager(this);
+
+
+    public ActivitiesManager getActivitiesManager() {
+        return activitiesManager;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -123,8 +130,12 @@ public abstract class BaseActivity extends AppCompatActivity implements IView {
     }
 
     protected boolean onBeforeBackPressed() {
-        // TODO: 2018/7/3 这里需要使用activityHelper，来做相应的逻辑判断
-        return false;
+        if (activitiesManager.size() == 1) {
+            moveTaskToBack(true);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
