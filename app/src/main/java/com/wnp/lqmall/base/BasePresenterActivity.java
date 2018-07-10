@@ -31,8 +31,4 @@ public abstract class BasePresenterActivity<T extends BasePresenter<E>, E extend
         return false;
     }
 
-    @Override
-    protected boolean onBeforeBackPressed() {
-        return false;
-    }
 }

@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import com.simplexx.wnp.baselib.basemvp.BasePresenter;
 import com.simplexx.wnp.baselib.basemvp.IView;
 import com.simplexx.wnp.util.PresenterUtil;
+import com.simplexx.wnp.util.R;
+import com.simplexx.wnp.util.ui.StatusBarUtil;
 
 /**
  * Created by wnp on 2018/6/25.
@@ -35,8 +37,21 @@ public abstract class PresenterActivity<T extends BasePresenter<E>, E extends IV
         presenter.onViewCreate();
     }
 
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        setStatusBar();
+    }
+
+    /**
+     * 需要statusBar特别的定制，可以在子类中重写该方法
+     */
+    protected void setStatusBar() {
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
+    }
+
     protected boolean canRotateScreen() {
-        return true;
+        return false;
     }
 
     protected abstract void initView(Bundle savedInstanceState);

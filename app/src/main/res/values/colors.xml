@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!--    <color name="colorPrimary">#3F51B5</color>
+        <color name="colorPrimaryDark">#303F9F</color>
+        <color name="colorAccent">#FF4081</color>-->
+
+        <color name="colorPrimary">#ffb629</color>
+        <color name="colorPrimaryDark">#ffa915</color>
+        <color name="colorAccent">#ff9c00</color>
+
+        <!-- 白色-->
+        <color name="white_ffffff">#fff</color>
+        <color name="white_40ffffff">#66ffffff</color>
+        <color name="white_50ffffff">#80ffffff</color>
+        <color name="white_f3f3f3">#f3f3f3</color>
+        <color name="white_f5f5f5">#f5f5f5</color>
+        <color name="white_f8f8f8">#f8f8f8</color>
+        <color name="white_fafafa">#fafafa</color>
+        <color name="white_fbfbfb">#fbfbfb</color>
+        <color name="white_eeeeee">#eee</color>
+
+
+        <!-- 橙色-->
+        <color name="orange_ff5500">#ff5500</color>
+        <color name="orange_ff8800">#ff8800</color>
+        <color name="orange_ff9900">#ff9900</color>
+        <color name="orange_ff9966">#ff9966</color>
+        <color name="orange_dd9900">#dd9900</color>
+        <color name="orange_fed637">#fed637</color>
+        <color name="orange_ff4444">#ff4444</color>
+        <color name="orange_a09d7a">#a09d7a</color>
+        <color name="orange_f88829">#f88829</color>
+        <color name="orange_ffa71c">#ffa71c</color>
+        <color name="orange_fff7ea">#fff7ea</color>
+        <color name="orange_66ffa71c">#66ffa71c</color>
+        <color name="orange_ff9d01">#ff9d01</color>
+        <!--黑色-->
+        <color name="black_000000">#000000</color>
+        <color name="black_333333">#333</color>
+        <color name="black_555555">#555</color>
+        <color name="black_ff404040">#ff404040</color>
+        <color name="black_919191">#919191</color>
+        <color name="black_999999">#999999</color>
+        <color name="black_aa333333">#aa333333</color>
+        <color name="black_666666">#666666</color>
+        <color name="black_565656">#565656</color>
+
+
+        <!--灰色-->
+        <color name="gray_E0E0E0">#E0E0E0</color>
+        <color name="gray_e3e3e3">#e3e3e3</color>
+        <color name="gray_e0e0e0">#e0e0e0</color>
+        <color name="gray_999999">#999</color>
+        <color name="gray_383838">#383838</color>
+        <color name="gray_777777">#777777</color>
+        <color name="gray_f3f3f3">#f3f3f3</color>
+        <color name="gray_fbfbfb">#fbfbfb</color>
+        <color name="gray_aaaaaa">#aaa</color>
+        <color name="gray_bbbbbb">#bbb</color>
+        <color name="gray_eeeeee">#eee</color>
+        <color name="gray_efefef">#efefef</color>
+        <color name="gray_cccccc">#ccc</color>
+        <color name="gray_d9d9d9">#d9d9d9</color>
+        <color name="gray_d5d5d5">#d5d5d5</color>
+        <color name="gray_e5e5e5">#e5e5e5</color>
+        <color name="gray_dddddd">#ddd</color>
+        <color name="gray_f7f7f7">#F7F7F7</color>
+        <color name="gray_dcdcdc">#dcdcdc</color>
+        <color name="gray_ababab">#ababab</color>
+        <color name="gray_9a9a9a">#9a9a9a</color>
+        <color name="gray_c9c9c9">#c9c9c9</color>
+        <color name="gray_b6b6b6">#b6b6b6</color>
+        <color name="gray_5c5c5c">#5c5c5c</color>
+        <color name="gray_a8a8a8">#a8a8a8</color>
+        <color name="gray_cc646464">#cc646464</color>
+        <color name="gray_8c8c8c">#8c8c8c</color>
+        <color name="gray_555555">#555555</color>
+        <color name="gray_666666">#666666</color>
+        <color name="gray_888888">#888888</color>
+        <color name="gray_808080">#808080</color>
+        <color name="gray_afafaf">#afafaf</color>
+        <color name="gray_767676">#767676</color>
+
+        <!-- 绿色-->
+        <color name="green_00aa33">#00aa33</color>
+        <color name="green_43D95D">#FF43D95D</color>
+        <color name="green_009922">#009922</color>
+        <color name="green_339900">#339900</color>
+        <color name="green_06B704">#06B704</color>
+        <color name="green_00c800">#00c800</color>
+        <color name="green_48c61c">#48c61c</color>
+        <color name="green_32af07">#32af07</color>
+
+        <!--蓝色-->
+        <color name="blue_2277dd">#2277dd</color>
+        <color name="blue_3377aa">#3377aa</color>
+        <color name="blue_1177ff">#1177ff</color>
+        <color name="blue_336699">#336699</color>
+        <color name="blue_33aacc">#33aacc</color>
+        <color name="blue_eaf6ff">#eaf6ff</color>
+        <color name="blue_77aacc">#77aacc</color>
+        <color name="blue_1f90e6">#1f90e6</color>
+        <color name="blue_e6f6ff">#e6f6ff</color>
+        <color name="blue_259bff">#259bff</color>
+        <color name="blue_56709c">#56709c</color>
+        <color name="blue_0089fd">#0089fd</color>
+
+        <!--黄色-->
+        <color name="yellow_FFF3D3">#FFF3D3</color>
+        <color name="yellow_ffe009">#ffe099</color>
+        <color name="yellow_fff5dd">#fff5dd</color>
+        <color name="yellow_fff5e5">#fff5e5</color>
+        <color name="yellow_ffe8b8">#ffe8b8</color>
+        <color name="yellow_b67c00">#b67c00</color>
+        <color name="yellow_bbaa00">#bbaa00</color>
+        <color name="yellow_bb8800">#bb8800</color>
+        <color name="yellow_ff9000">#ff9000</color>
+        <color name="yellow_ff9900">#ff9900</color>
+        <color name="yellow_fff2bf">#fff2bf</color>
+        <color name="yellow_c5a527">#c5a527</color>
+        <color name="yellow_fffde0">#fffde0</color>
+
+        <!--红色-->
+        <color name="red_990000">#900</color>
+        <color name="red_dd0000">#dd0000</color>
+        <color name="red_f44">#f44</color>
+        <color name="red_fd424d">#fd424d</color>
+        <color name="wechat_list_item_divider">#D9D9D9</color>
+        <color name="wechat_list_item_title_bg">#EBEBEB</color>
+
+
 </resources>

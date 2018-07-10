@@ -2,16 +2,27 @@ package com.wnp.lqmall.activity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.ListActivity;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
 
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.simplexx.wnp.presenter.LoginPresenter;
 import com.simplexx.wnp.util.ToastUtils;
+import com.simplexx.wnp.util.ui.StatusBarUtil;
 import com.wnp.lqmall.R;
 import com.wnp.lqmall.base.BasePresenterActivity;
 import com.wnp.lqmall.ioc.component.PresenterComponent;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import permissions.dispatcher.NeedsPermission;
 import permissions.dispatcher.OnNeverAskAgain;
 import permissions.dispatcher.OnPermissionDenied;
@@ -25,12 +36,23 @@ import permissions.dispatcher.RuntimePermissions;
 @RuntimePermissions
 public class LoginActivity extends BasePresenterActivity<LoginPresenter, LoginPresenter.ILoginView>
         implements LoginPresenter.ILoginView {
+    @BindView(R.id.tv_content)
+    TextView mTvContent;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login);
-        getPresenter().request();
-        LoginActivityPermissionsDispatcher.showCameraWithPermissionCheck(this);
+        ButterKnife.bind(this);
+        mTvContent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(false);
     }
 
     @NeedsPermission(Manifest.permission.CAMERA)

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
 
 
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion 19
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -31,7 +31,10 @@ tasks.withType(JavaCompile) {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':baselib')
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:appcompat-v7:27.0.2'
     compile 'com.jakewharton:disklrucache:2.0.2'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    compile 'com.android.support:design:27.0.2'
 //    compile 'com.ninetripods:aop-permission:1.0.8'
 }
