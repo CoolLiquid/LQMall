@@ -33,6 +33,7 @@ dependencies {
     compile project(':baselib')
     implementation 'com.android.support:appcompat-v7:27.0.2'
     compile 'com.jakewharton:disklrucache:2.0.2'
+    compile 'com.squareup.picasso:picasso:2.5.3-SNAPSHOT'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     compile 'com.android.support:design:27.0.2'
