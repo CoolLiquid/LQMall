@@ -5,12 +5,14 @@ import android.annotation.SuppressLint;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -20,6 +22,7 @@ import com.simplexx.wnp.util.ui.StatusBarUtil;
 import com.wnp.lqmall.R;
 import com.wnp.lqmall.base.BasePresenterActivity;
 import com.wnp.lqmall.ioc.component.PresenterComponent;
+import com.wnp.lqmall.loader.ImageLoaderUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,11 +41,15 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter, LoginPr
         implements LoginPresenter.ILoginView {
     @BindView(R.id.tv_content)
     TextView mTvContent;
+    @BindView(R.id.image)
+    ImageView imageView;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        ImageLoaderUtil.INSTANT.loadImage(Uri.parse("https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1532000455&di=90bc26ca2b75f28115f93cc48425a969&src=http://s1.sinaimg.cn/mw690/006LDoUHzy7auXElZGE40&690"
+        ), imageView);
         mTvContent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

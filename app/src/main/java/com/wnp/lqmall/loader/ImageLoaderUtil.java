@@ -14,14 +14,15 @@ import com.wnp.lqmall.loader.transform.core.PicassoFaceDetector;
 
 public class ImageLoaderUtil {
 
-    private static PicassonImageLoader picassonImageLoader;
-    private static ImageLoaderOptions.ImageTransform<FaceCenterCrop> faceCenterCropImageTransform;
+    public static ImageLoaderUtil INSTANT = new ImageLoaderUtil();
+
+    private PicassonImageLoader picassonImageLoader;
+    private ImageLoaderOptions.ImageTransform<FaceCenterCrop> faceCenterCropImageTransform;
 
 
-    public static void init(Application application) {
+    public void init(Application application) {
         picassonImageLoader = PicassonImageLoader.getInstant(application);
         PicassoFaceDetector.initialize(application);//初始化人脸裁图
-
     }
 
 
