@@ -132,5 +132,6 @@
     <orderEntry type="library" name="com.android.support:support-vector-drawable-27.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:support-v4-27.0.2" level="project" />
     <orderEntry type="module" module-name="baselib" />
+    <orderEntry type="module" module-name="baselib" />
   </component>
 </module>
