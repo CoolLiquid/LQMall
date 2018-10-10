@@ -19,6 +19,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.simplexx.wnp.presenter.LoginPresenter;
 import com.simplexx.wnp.util.ToastUtils;
 import com.simplexx.wnp.util.ui.StatusBarUtil;
+import com.simplexx.wnp.util.ui.widget.BlurringView;
 import com.wnp.lqmall.R;
 import com.wnp.lqmall.base.BasePresenterActivity;
 import com.wnp.lqmall.ioc.component.PresenterComponent;
@@ -43,6 +44,8 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter, LoginPr
     TextView mTvContent;
     @BindView(R.id.image)
     ImageView imageView;
+    @BindView(R.id.blur)
+    BlurringView blurringView;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -60,6 +63,7 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter, LoginPr
 
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(false);
+        blurringView.setBlurredView(imageView);
     }
 
     @NeedsPermission(Manifest.permission.CAMERA)

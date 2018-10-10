@@ -149,8 +149,5 @@
     <orderEntry type="module" module-name="util" />
     <orderEntry type="module" module-name="lib" />
     <orderEntry type="module" module-name="baselib" />
-    <orderEntry type="module" module-name="util" />
-    <orderEntry type="module" module-name="lib" />
-    <orderEntry type="module" module-name="baselib" />
   </component>
 </module>
