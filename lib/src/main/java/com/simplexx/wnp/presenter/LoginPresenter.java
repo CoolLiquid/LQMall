@@ -2,6 +2,14 @@ package com.simplexx.wnp.presenter;
 
 import com.simplexx.wnp.baselib.basemvp.IView;
 import com.simplexx.wnp.baselib.executor.ActionRunnable;
+import com.simplexx.wnp.repository.INotifyHistoryRepository;
+import com.simplexx.wnp.repository.entity.NotifyHistory;
+
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.inject.Inject;
 
 /**
  * Created by wnp on 2018/7/2.
@@ -12,28 +20,43 @@ public class LoginPresenter extends BasePresenter<LoginPresenter.ILoginView> {
         super(iView);
     }
 
-    public interface ILoginView extends IView {
 
+    public interface ILoginView extends IView {
+        void onTestRepository(String flag);
     }
 
-    public void request() {
+    @Inject
+    INotifyHistoryRepository iNotifyHistoryRepository;
+
+    /**
+     * 测试数据库是否接入正确
+     */
+    public void testRepository() {
         newActionBuilder().setRunnable(new ActionRunnable() {
 
             @Override
             public void run() {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                Date date = new Date();
+                date.setTime(System.currentTimeMillis());
+
+                iNotifyHistoryRepository
+                        .save(new NotifyHistory("123", "456", 123456l, 890l, date));
+
+                if (iNotifyHistoryRepository.exists("123")) {
+                    NotifyHistory notifyHistory = iNotifyHistoryRepository.load("123");
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(notifyHistory.getCreate());
+                    getView().onTestRepository(String.valueOf(calendar.get(Calendar.DATE)));
                 }
             }
-        }).setRunLoading().run();
+        }).setRunBackground().run();
     }
 
     @Override
     public void onViewCreate() {
         super.onViewCreate();
         System.out.print("onViewCreate");
+        testRepository();
     }
 
     @Override

@@ -5,8 +5,10 @@ import com.simplexx.wnp.baselib.basemvp.IView;
 import com.simplexx.wnp.baselib.exception.NetWorkException;
 import com.simplexx.wnp.baselib.executor.ActionRequest;
 import com.simplexx.wnp.util.base.PresenterFragment;
+import com.wnp.lqmall.application.LQFrameApplication;
 import com.wnp.lqmall.ioc.component.DaggerPresenterComponent;
 import com.wnp.lqmall.ioc.component.PresenterComponent;
+import com.wnp.lqmall.ioc.module.DaoSessionModule;
 
 /**
  * Created by wnp on 2018/7/3.
@@ -18,7 +20,10 @@ public abstract class BasePresenterFragment<T extends BasePresenter<E>, E extend
     @Override
     public T createPresenter() {
         T presenter = super.createPresenter();
-        PresenterComponent component = DaggerPresenterComponent.builder().build();
+        PresenterComponent component = DaggerPresenterComponent
+                .builder()
+                .daoSessionModule(new DaoSessionModule(LQFrameApplication.daoSession))
+                .build();
         inject(component, presenter);
         return presenter;
     }

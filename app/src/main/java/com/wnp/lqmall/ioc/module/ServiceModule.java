@@ -14,7 +14,7 @@ import dagger.Provides;
 /**
  * Created by wnp on 2018/6/26.
  */
-@Module(includes = {ApiModule.class})
+@Module(includes = {ApiModule.class, DaoSessionModule.class, RepositoryModule.class})
 public class ServiceModule {
     @Provides
     @Singleton

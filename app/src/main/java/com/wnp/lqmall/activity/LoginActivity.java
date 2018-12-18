@@ -12,6 +12,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,6 +47,8 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter, LoginPr
     ImageView imageView;
     @BindView(R.id.blur)
     BlurringView blurringView;
+    @BindView(R.id.editText)
+    EditText editText;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -110,5 +113,10 @@ public class LoginActivity extends BasePresenterActivity<LoginPresenter, LoginPr
     @Override
     protected void onTokenOutDate() {
 
+    }
+
+    @Override
+    public void onTestRepository(String flag) {
+        editText.setText(flag);
     }
 }

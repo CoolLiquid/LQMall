@@ -38,4 +38,8 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     compile 'com.android.support:design:27.0.2'
 //    compile 'com.ninetripods:aop-permission:1.0.8'
+    compile 'org.greenrobot:greendao:3.2.2'
+
+    // 使用数据库升级辅助GreenDaoUpgradeHelper时添加
+    compile 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.0.1'
 }

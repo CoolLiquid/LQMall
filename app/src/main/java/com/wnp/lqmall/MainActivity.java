@@ -32,5 +32,8 @@ public class MainActivity extends AppCompatActivity {
         });
         textView.setText("你们号");
 
+        //测试数据库
+
+
     }
 }
